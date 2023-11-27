@@ -1,5 +1,5 @@
 {
-  "name": "nuxtjs",
+  "name": "art_auth_validator_nuxt",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -10,7 +10,7 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "core-js": "^3.27.2",
-    "nuxt": "^3.1.2"
+    "core-js": "3.27.2",
+    "nuxt": "3.1.2"
   }
 }
