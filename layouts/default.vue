@@ -17,9 +17,9 @@ html {
   box-sizing: border-box;
 }
 
-/* body {
-  Add here a background image  
-} */
+body {
+  background-color: #2b2b3b;
+}
 
 *,
 *::before,
