@@ -47,8 +47,8 @@ export default defineNuxtConfig({
     BACKEND_API_KEY:
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3N1ZXIiOiJhcnQtYXV0aC12YWxpZGF0b3ItYXBpIiwiaXNzdWVkQXQiOiIyMDIzLTExLTI1VDAzOjIxOjQ2LjgzNVoiLCJleHBpcmF0aW9uIjoiMjAyMy0xMi0yNVQwMzoyMTo0Ni44MzVaIiwiZW50aXR5IjoiYXBpIiwiZW50aXR5TmFtZSI6InN1cGVyLWFkbWluLWp3dCIsImlhdCI6MTcwMDg4MjUwNn0.tjk7TxuOJ1LMgu2_c3R1ODcX-_iuzs0Mfdpi5Q5CEhI",
     public: {
-      // BACKEND_API: "http://localhost:3000",
-      BACKEND_API: "https://cm-art-certificate-api-dev.up.railway.app",
+      BACKEND_API: "http://localhost:3000", // TODO load this dynamically
+      // BACKEND_API: "https://cm-art-certificate-api-dev.up.railway.app",
     },
   },
 });

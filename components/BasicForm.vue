@@ -13,7 +13,6 @@
         @keyup="changeInput"
       />
       <button class="search-box" type="submit" @click="$emit('submitClick')">SEARCH</button>
-      {{ pin }} from component
     </div>
   </div>
 </template>
@@ -40,23 +39,7 @@
 </script>
 
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&display=swap');
-
-body {
-  margin: 0;
-  width: 100vw;
-  height: 100vh;
-  background: #ecf0f3;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-  place-items: center;
-  overflow: hidden;
-  font-family: poppins;
-}
-
+<style scoped>
 .form-container {
   position: relative;
   width: 21.875rem;
