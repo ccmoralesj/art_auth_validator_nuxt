@@ -1,14 +1,13 @@
 <template>
   <div class="form-container">
     <div class="brand-logo">
-      <TempLogo />
+      <Logo />
     </div>
-    <div class="brand-title">MORA CRIS</div>
     <div class="inputs">
       <label>PIN</label>
       <input
         type="search"
-        placeholder="10 to 12 art PIN code"
+        placeholder="Insert art PIN code"
         :value="pin"
         @keyup="changeInput"
       />
@@ -41,24 +40,28 @@
 
 <style scoped>
 .form-container {
+  display: flex;
+  flex-direction: column;
   position: relative;
-  width: 21.875rem;
-  height: 27rem;
+  width: fit-content;
+  height: auto;
   border-radius: 1.25rem;
   padding: 3rem;
   box-sizing: border-box;
-  background: #2d2d2d;
+  background: #262626;
   box-shadow: 14px 14px 20px #1c2126, -5px -5px 22px #565676;
 }
 
 .brand-logo {
-  height: 100px;
-  width: 100px;
+  display: flex;
+  justify-content: center;
+
+  height: 120px;
+  width: 120px;
   margin: auto;
-  padding-top: 10px;
   border-radius: 50%;
   box-sizing: border-box;
-  box-shadow: 7px 7px 10px #2f455b, -7px -7px 10px #2f455b;
+  box-shadow: 7px 7px 10px #1c1a12, -5px -6px 11px #4a463a;
 }
 
 .brand-title {
@@ -97,7 +100,7 @@ input::placeholder {
 input {
   color: white;
   caret-color: white;
-  background: #2d2d2d;
+  background: #262626;
   padding: 10px;
   padding-left: 20px;
   height: 50px;
@@ -118,16 +121,6 @@ button {
   transition: 0.5s;
 }
 
-/* button:hover {
-  box-shadow: none;
-} */
-
-h1 {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
 .search-box:hover {
   background: #03e9f4;
   color: #fff;
@@ -136,5 +129,10 @@ h1 {
     0 5px 25px 0px #16b8ca,
     0 3px 40px 2px #16b8ca,
     0 0px 30px 5px #16b8ca;
+}
+
+img {
+  width: 5rem;
+  margin-right: 2rem;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <img class="moracrisLogo" src="~/assets/moraCrisRoundYellow.png"/>
+  <img class="moracrisLogo" src="~/assets/MoraCrisMOC.png"/>
 </template>
 <style scoped>
 .moracrisLogo {

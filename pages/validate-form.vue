@@ -28,7 +28,6 @@ async function verifyArtCertificate() {
     secret,
     pin: pin.value,
   }
-  console.log({ bodyParams })
   const { data: response, pending: pendingResponse } = await useLazyFetch('/api/backend/check-authenticity', {
     method: 'POST',
     body: bodyParams,
@@ -36,18 +35,25 @@ async function verifyArtCertificate() {
   const rawPending = toRaw(pendingResponse.value)
   const rawResponse = toRaw(response.value)
   pending.value = rawPending
-  artInfo.value =  rawPending ? {} : { message: rawResponse.msg, ...rawResponse.artInfo }
+  artInfo.value =  rawPending ? {} : {
+    ...rawResponse
+  }
 }
 </script>
 
 <style scoped>
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
+  width: 100%;
+}
 .art-validator-message {
   z-index: 100;
 }
-span {
+/* span {
   display: block;
   margin-top: 30px;
-}
+} */
 
 .pending {
   display: none;
