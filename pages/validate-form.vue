@@ -13,6 +13,8 @@
   </div>
 </template>
 <script setup lang="ts">
+import LogoMOC from '~/components/LogoMOC.vue';
+
 const pin = ref('')
 const pending = ref(true)
 const artInfo = ref({})
@@ -58,4 +60,5 @@ async function verifyArtCertificate() {
 .pending {
   display: none;
 }
+
 </style>
