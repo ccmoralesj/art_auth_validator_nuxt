@@ -3,20 +3,22 @@
     <div class="art-validator-message" :class="{pending: pending}">
       <ArtInfo v-bind:artInfo="artInfo"/>
     </div>
-    <div :class="{pending: !pending}">
+    <div :class="{pending: !pending, 'no-show': isSendRequestPending }">
       <BasicForm
-      v-bind:pin="pin"
-      @updatePin="updatePin"
-      @submitClick="verifyArtCertificate"
-    />
+        v-bind:pin="pin"
+        @updatePin="updatePin"
+        @submitClick="verifyArtCertificate"
+      />
+    </div>
+    <div class="loader" :class="{'no-show': !isSendRequestPending}">
+      <LogoLoader/>
     </div>
   </div>
 </template>
 <script setup lang="ts">
-import LogoMOC from '~/components/LogoMOC.vue';
-
 const pin = ref('')
 const pending = ref(true)
+const isSendRequestPending = ref(false)
 const artInfo = ref({})
 const route = useRoute();
 const { secret } = route.query
@@ -30,6 +32,7 @@ async function verifyArtCertificate() {
     secret,
     pin: pin.value,
   }
+  isSendRequestPending.value = true
   const { data: response, pending: pendingResponse } = await useLazyFetch('/api/backend/check-authenticity', {
     method: 'POST',
     body: bodyParams,
@@ -40,6 +43,7 @@ async function verifyArtCertificate() {
   artInfo.value =  rawPending ? {} : {
     ...rawResponse
   }
+  isSendRequestPending.value = false
 }
 </script>
 
@@ -60,5 +64,7 @@ async function verifyArtCertificate() {
 .pending {
   display: none;
 }
-
+.no-show {
+  display: none;
+}
 </style>
