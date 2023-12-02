@@ -2,7 +2,7 @@
   <div class="form-container">
     <!-- <div class="brand-title">MORA CRIS</div> -->
     <div class="inputs">
-      <aside class="top-margins">
+      <aside class="top-section-margins">
         <h1>Certificate of Authenticity</h1>
         <div class="brand-logo">
           <Logo />
@@ -10,35 +10,63 @@
       </aside>
       <section>
         <aside class="no-margin">
-          <article class="flex-grow-1">
-            <label class="content-label">{{ artInfo.title }}</label>
-            <label class="content-label-title">Title</label>
-          </article>
+          <ArticleWithLabels
+            class="flex-grow-1" :class="{ isValid: artInfo.isAuthentic, isNotValid: !artInfo.isAuthentic }"
+            v-bind:labelContent="{
+              message: artInfo.title,
+              title: `Title`
+            }"
+          />
+          <ArticleWithLabels
+            class="flex-grow-1" :class="{ isValid: !artInfo.isAuthentic, isNotValid: artInfo.isAuthentic }"
+            v-bind:labelContent="{
+              message: `PIN registered doesn't match`,
+              title: `Fake art piece`
+            }"
+          />
           <img :class="{ isValid: artInfo.isAuthentic, isNotValid: !artInfo.isAuthentic }" src="~/assets/approved.png" />
           <img :class="{ isValid: !artInfo.isAuthentic, isNotValid: artInfo.isAuthentic }" src="~/assets/rejected.png" />
         </aside>
       </section>
       <hr class="solid">
-      <aside>
+      <aside  :class="{ isValid: artInfo.isAuthentic, isNotValid: !artInfo.isAuthentic }" >
         <span>
-          <section>
-              <label class="content-label">{{ artInfo.series }}</label>
-              <label class="content-label-title">Series</label>
-          </section>
-          <section>
-              <label class="content-label">{{ artInfo.dimensions }}</label>
-              <label class="content-label-title">Dimensions</label>
-          </section>
+          <SectionWithLabels
+            v-bind:labelContent="{
+                message: artInfo.series,
+                title: `Series`
+              }"
+          />
+          <SectionWithLabels
+            v-bind:labelContent="{
+                message: artInfo.dimensions,
+                title: `Dimensions`
+              }"
+          />
         </span>
         <span>
-          <section>
-              <label class="content-label">{{ artInfo.creationYear }}</label>
-              <label class="content-label-title">Year artwork created</label>
-          </section>
-          <section>
-              <label class="content-label">{{ artInfo.limitedEdition }}</label>
-              <label class="content-label-title">Limited edition</label>
-          </section>
+          <SectionWithLabels
+            v-bind:labelContent="{
+                message: artInfo.creationYear,
+                title: `Year artwork created`
+              }"
+          />
+          <SectionWithLabels
+            v-bind:labelContent="{
+                message: artInfo.limitedEdition,
+                title: `Limited edition`
+              }"
+          />
+        </span>
+      </aside>
+      <aside  :class="{ isValid: !artInfo.isAuthentic, isNotValid: artInfo.isAuthentic }" >
+        <span>
+          <SectionWithLabels
+            v-bind:labelContent="{
+                message: `Please review your PIN and try again`,
+                title: `Note`
+              }"
+          />
         </span>
       </aside>
       <LogoMOC class="logoMOC" />
@@ -67,13 +95,14 @@
 .form-container {
   display: flex;
   position: relative;
-  width: fit-content;
-  height: auto;
   border-radius: 1.25rem;
   padding: 3rem;
   box-sizing: border-box;
   background: #262626;
   box-shadow: 14px 14px 20px #1c2126, -5px -5px 22px #565676;
+
+  /* width: fit-content;
+  height: auto; */
 }
 .brand-logo {
   display: flex;
@@ -94,13 +123,9 @@ img {
 
 h1 {
   color: whitesmoke;
-  margin-bottom: 2rem;
-  margin-right: 2rem;
+  margin-right: 1em;
   font-size: xx-large;
   width: min-content;
-}
-.top-margins {
-  margin: 0;
 }
 .inputs {
   display: flex;
@@ -150,27 +175,15 @@ section article {
   align-self: center;
 }
 
-label {
-  margin-bottom: 6px;
-  color: white;
-}
-
 input::placeholder {
   color: #a4a4a4;
 }
-
-.content-label {
-  font-size: large;
+.top-section-margins {
+  margin-top: 0;
+  margin-bottom: 2rem;
 }
-.content-label-title {
-  align-self: flex-start !important;
-  font-style: italic;
-  font-size: small;
-  color:rgb(184, 184, 184)
-}
-
 .isValid {
-  display: block;
+  display: flex;
 }
 
 .isNotValid {

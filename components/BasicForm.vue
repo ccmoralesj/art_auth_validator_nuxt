@@ -43,21 +43,22 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  width: fit-content;
-  height: auto;
   border-radius: 1.25rem;
   padding: 3rem;
   box-sizing: border-box;
   background: #262626;
   box-shadow: 14px 14px 20px #1c2126, -5px -5px 22px #565676;
+
+  width: fit-content;
+  height: 50vh;
 }
 
 .brand-logo {
   display: flex;
   justify-content: center;
 
-  height: 120px;
-  width: 120px;
+  height: 10.5em;
+  width: 10.5em;
   margin: auto;
   border-radius: 50%;
   box-sizing: border-box;
@@ -132,7 +133,7 @@ button {
 }
 
 img {
-  width: 5rem;
+  width: 7em;
   margin-right: 2rem;
 }
 </style>

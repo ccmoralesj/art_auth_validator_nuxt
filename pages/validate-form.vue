@@ -3,7 +3,7 @@
     <div class="art-validator-message" :class="{pending: pending}">
       <ArtInfo v-bind:artInfo="artInfo"/>
     </div>
-    <div :class="{pending: !pending, 'no-show': isSendRequestPending }">
+    <div class="fit-form-in-screen" :class="{pending: !pending, 'no-show': isSendRequestPending }">
       <BasicForm
         v-bind:pin="pin"
         @updatePin="updatePin"
@@ -44,6 +44,7 @@ async function verifyArtCertificate() {
     ...rawResponse
   }
   isSendRequestPending.value = false
+
 }
 </script>
 
@@ -51,15 +52,26 @@ async function verifyArtCertificate() {
 .container {
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
-  width: 100%;
+  width: fit-content;
 }
+
 .art-validator-message {
   z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:  center;
 }
-/* span {
-  display: block;
-  margin-top: 30px;
-} */
+
+.fit-form-in-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 80vw;
+    height: 90vh;
+}
 
 .pending {
   display: none;
