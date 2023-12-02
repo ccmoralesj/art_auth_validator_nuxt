@@ -1,0 +1,10 @@
+{
+  "cSpell.words": ["nuxt", "nuxtjs"],
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "eslint.options": {
+    "extensions": [
+      ".ts",
+      ".vue"
+    ]
+},
+}

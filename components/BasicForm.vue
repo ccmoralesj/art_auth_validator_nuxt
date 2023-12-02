@@ -1,56 +1,68 @@
 <template>
   <div class="form-container">
-    <div class="brand-logo"></div>
-    <div class="brand-title">TWITTER</div>
+    <div class="brand-logo">
+      <Logo />
+    </div>
     <div class="inputs">
       <label>PIN</label>
-      <input type="search" placeholder="10 to 12 art PIN code" />
-      <button class="search-box" type="submit">SEARCH</button>
+      <input
+        type="search"
+        placeholder="Insert art PIN code"
+        :value="pin"
+        @keyup="changeInput"
+      />
+      <button class="search-box" type="submit" @click="$emit('submitClick')">SEARCH</button>
     </div>
   </div>
 </template>
+<script setup lang="ts">
+  const props = defineProps({
+    pin: String
+  })
+  const pin = ref(props.pin); // Create a local ref for pin
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&display=swap');
+  const emit = defineEmits(['updatePin', 'submitClick'])
+  // Emit an event to update pin in the ParentComponent
+  function emitUpdatePIN(newPINValue: string) {
+    emit('updatePin', newPINValue);
+  };
 
-input {
-  caret-color: red;
-}
+  // Function to change the pin state and emit the update
+  function changeInput(event: KeyboardEvent) {
+    if (!event || !event.target) {
+      return
+    }
+    pin.value = event.target.value;
+    emitUpdatePIN(pin.value);
+  };
+</script>
 
-body {
-  margin: 0;
-  width: 100vw;
-  height: 100vh;
-  background: #ecf0f3;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-  place-items: center;
-  overflow: hidden;
-  font-family: poppins;
-}
 
+<style scoped>
 .form-container {
+  display: flex;
+  flex-direction: column;
   position: relative;
-  width: 21.875rem;
-  height: 27rem;
   border-radius: 1.25rem;
   padding: 3rem;
   box-sizing: border-box;
-  background: #ecf0f3;
-  /* background: #c9d1d7; Blueish grey */
-  box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+  background: #262626;
+  box-shadow: 14px 14px 20px #1c2126, -5px -5px 22px #565676;
+
+  width: fit-content;
+  height: 50vh;
 }
 
 .brand-logo {
-  height: 100px;
-  width: 100px;
-  background: url("https://img.icons8.com/color/100/000000/twitter--v2.png");
+  display: flex;
+  justify-content: center;
+
+  height: 10.5em;
+  width: 10.5em;
   margin: auto;
   border-radius: 50%;
   box-sizing: border-box;
-  box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;
+  box-shadow: 7px 7px 10px #1c1a12, -5px -6px 11px #4a463a;
 }
 
 .brand-title {
@@ -63,7 +75,7 @@ body {
 
 .inputs {
   text-align: left;
-  margin-top: 2.5rem;
+  margin-top: 1.5rem;
 }
 
 label,
@@ -79,51 +91,49 @@ button {
 
 label {
   margin-bottom: 6px;
+  color: white;
 }
 
 input::placeholder {
-  color: gray;
+  color: #a4a4a4;
 }
 
 input {
-  background: #ecf0f3;
+  color: white;
+  caret-color: white;
+  background: #262626;
   padding: 10px;
   padding-left: 20px;
   height: 50px;
   font-size: 14px;
   border-radius: 50px;
-  box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+  box-shadow: inset 6px 6px 6px #1a1a1a, inset -6px -6px 6px #31363a;
 }
 
 button {
   color: white;
-  margin-top: 20px;
+  margin-top: 1.875rem;
   background: #1DA1F2;
   height: 40px;
   border-radius: 20px;
   cursor: pointer;
   font-weight: 900;
-  box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white;
+  box-shadow: 6px 6px 6px #1c2126, -6px -5px 7px #30404a;
   transition: 0.5s;
-}
-
-/* button:hover {
-  box-shadow: none;
-} */
-
-h1 {
-  position: absolute;
-  top: 0;
-  left: 0;
 }
 
 .search-box:hover {
   background: #03e9f4;
   color: #fff;
   border-radius: 20px;
-  box-shadow: 0 0 5px 0px #03e9f4,
-    0 5px 25px 0px #03e9f4,
-    0 3px 50px 2px #03e9f4,
-    0 0px 100px 5px #03e9f4;
+  box-shadow: 0 0 5px 0px #16b8ca,
+    0 5px 25px 0px #16b8ca,
+    0 3px 40px 2px #16b8ca,
+    0 0px 30px 5px #16b8ca;
+}
+
+img {
+  width: 7em;
+  margin-right: 2rem;
 }
 </style>
