@@ -6,6 +6,8 @@
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz@0,9..144;1,9..144&display=swap');
+
 html {
   font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -29,7 +31,7 @@ body {
   justify-content: center;
   place-items: center;
   overflow: hidden;
-  font-family: poppins;
+  font-family: "Fraunces";
   background-color: #2b2b3b;
 }
 *,
@@ -37,5 +39,9 @@ body {
 *::after {
   box-sizing: border-box;
   margin: 0;
+}
+
+button {
+  font-family: "Fraunces";
 }
 </style>

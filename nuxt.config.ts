@@ -47,6 +47,7 @@ export default defineNuxtConfig({
     BACKEND_API_KEY:
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3N1ZXIiOiJhcnQtYXV0aC12YWxpZGF0b3ItYXBpIiwiaXNzdWVkQXQiOiIyMDIzLTExLTI1VDAzOjIxOjQ2LjgzNVoiLCJleHBpcmF0aW9uIjoiMjAyMy0xMi0yNVQwMzoyMTo0Ni44MzVaIiwiZW50aXR5IjoiYXBpIiwiZW50aXR5TmFtZSI6InN1cGVyLWFkbWluLWp3dCIsImlhdCI6MTcwMDg4MjUwNn0.tjk7TxuOJ1LMgu2_c3R1ODcX-_iuzs0Mfdpi5Q5CEhI",
     public: {
+      MORACRIS_WEB_PAGE_URI: "https://www.google.com",
       BACKEND_API: process.env.BACKEND_URI,
     },
   },
