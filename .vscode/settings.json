@@ -1,5 +1,9 @@
 {
-  "cSpell.words": ["nuxt", "nuxtjs"],
+  "cSpell.words": [
+    "Fraunces",
+    "nuxt",
+    "nuxtjs"
+  ],
   "typescript.tsdk": "node_modules/typescript/lib",
   "eslint.options": {
     "extensions": [
